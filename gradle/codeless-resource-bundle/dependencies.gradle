@@ -1,4 +1,6 @@
 dependencies {
+    compile projects.codeless_core
+    
     compile library.com_google_guava_guava
     compile library.org_javassist_javassist
     compile library.org_jboss_weld_se_weld_se

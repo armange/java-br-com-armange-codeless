@@ -1,5 +1,5 @@
-rootProject.name = 'aj-codeless'
-include 'aj-codeless-reflection',
-        'aj-codeless-core',
-        'aj-codeless-resource-bundle',
-        'aj-codeless-boilerplate'
+rootProject.name = 'codeless'
+include 'codeless-reflection',
+        'codeless-core',
+        'codeless-resource-bundle',
+        'codeless-boilerplate'
