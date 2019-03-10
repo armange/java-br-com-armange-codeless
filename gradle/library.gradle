@@ -19,9 +19,16 @@ ext.library = [
     junit_junit: "junit:junit:4.12",
     
     // The Apache Software License, Version 2.0
+<<<<<<< HEAD
+    org_assertj_assertj_core: "org.assertj:assertj-core:3.12.1",
+    
+    // Apache License 2.0
+    br_com_armange_codeless_codeless_resource_bundle: "br.com.armange.codeless:codeless-resource-bundle:$armangeVersion" 
+=======
     org_assertj_assertj_core: "org.assertj:assertj-core:3.12.1"
 ]
 
 ext.noConflicting = [
     'codeless-resource-bundle'
+>>>>>>> 5bdeee1de63909b9c8d5b0db1f4eee8760fee8ec
 ]
