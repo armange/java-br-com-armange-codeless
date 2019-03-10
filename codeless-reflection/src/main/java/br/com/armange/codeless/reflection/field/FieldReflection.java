@@ -1,16 +1,21 @@
 package br.com.armange.codeless.reflection.field;
 
-public class FieldReflection {
+import java.lang.reflect.Field;
+import java.util.function.Function;
+
+public abstract class FieldReflection {
     
-    private final FieldFilter fieldFilter;
-    
-    private FieldReflection(final Class<?> sourceClass) {
-        fieldFilter = new FieldFilter(sourceClass);
+    public static Function<? super Field, ? extends FieldValue> toFieldValue(final Object enclosingInstance) {
+        return f -> {
+            FieldValue fieldValue = null;
+            
+            try {
+                fieldValue = new FieldValue(f.get(enclosingInstance), null);
+            } catch (final IllegalArgumentException | IllegalAccessException e) {
+                fieldValue = new FieldValue(null, e);
+            }
+            
+            return fieldValue;
+        };
     }
-    
-    public FieldReflection fromClass(final Class<?> sourceClass) {
-        return new FieldReflection(sourceClass);
-    }
-    
-    
 }
