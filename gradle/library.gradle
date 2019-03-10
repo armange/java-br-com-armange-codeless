@@ -21,3 +21,7 @@ ext.library = [
     // The Apache Software License, Version 2.0
     org_assertj_assertj_core: "org.assertj:assertj-core:3.12.1"
 ]
+
+ext.noConflicting = [
+    'codeless-resource-bundle'
+]
