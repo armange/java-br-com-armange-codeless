@@ -9,10 +9,9 @@ class FieldFilter {
     private final Class<?> sourceClass;
     
     FieldFilter(final Class<?> sourceClass) {
-        ResourceBundle bundle = ResourceBundle.getBundle("");
-        bundle.
-        
         Objects.requireNonNull(sourceClass);
+        
+        ResourceBundle bundle = ResourceBundle.getBundle("");
         this.sourceClass = sourceClass;
     }
     
