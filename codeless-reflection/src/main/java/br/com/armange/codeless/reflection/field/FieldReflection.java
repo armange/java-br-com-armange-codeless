@@ -5,7 +5,7 @@ import java.util.function.Function;
 
 public abstract class FieldReflection {
     
-    public static Function<? super Field, ? extends FieldValue> toFieldValue(final Object enclosingInstance) {
+    public static Function<? super Field, ? extends FieldValue> mapToFieldValue(final Object enclosingInstance) {
         return f -> {
             FieldValue fieldValue = null;
             
@@ -16,6 +16,16 @@ public abstract class FieldReflection {
             }
             
             return fieldValue;
+        };
+    }
+    
+    public static Function<? super Field, ? extends Object> mapToValue(final Object enclosingInstance) {
+        return f -> {
+            try {
+                return f.get(enclosingInstance);
+            } catch (final IllegalArgumentException | IllegalAccessException e) {
+                throw new RuntimeException(e);
+            }
         };
     }
 }
