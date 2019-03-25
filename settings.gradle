@@ -3,4 +3,4 @@ include 'codeless-reflection',
         'codeless-core',
         'codeless-resource-bundle',
         'codeless-boilerplate',
-        'codeless-object-builder'
+        'codeless-object-builder-core'
