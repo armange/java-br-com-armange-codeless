@@ -25,6 +25,10 @@ ext.library = [
     br_com_armange_codeless_codeless_resource_bundle: "br.com.armange.codeless:codeless-resource-bundle:$armangeVersion" 
 ]
 
+/*
+ * Projects that are being imported as a library item, 
+ * instead of as a subproject.
+ */
 ext.noConflicting = [
     'codeless-resource-bundle'
 ]

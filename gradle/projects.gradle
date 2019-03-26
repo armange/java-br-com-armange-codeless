@@ -1,3 +1,4 @@
 ext.projects = [
     codeless_core: project(':codeless-core'),
+    codeless_reflection: project(':codeless-reflection'),
 ]
