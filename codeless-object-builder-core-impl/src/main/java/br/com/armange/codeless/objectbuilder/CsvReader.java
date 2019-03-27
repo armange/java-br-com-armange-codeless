@@ -7,16 +7,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UncheckedIOException;
-import java.lang.reflect.Constructor;
 import java.util.function.Consumer;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import br.com.armange.codeless.objectbuilder.csv.CsvLine;
 import br.com.armange.codeless.reflection.clazz.ClassReflection;
-import br.com.armange.codeless.reflection.field.FieldReflection;
+import csv.CsvLine;
 
-class CsvReader {
+public class CsvReader {
 
     private final InputStream csvInputStream;
     private final String separator;
@@ -68,7 +66,7 @@ class CsvReader {
         return head;
     }
     
-    public <T> T as(final Class<T> targetClass) {
+    public <T> Stream<T> streamAs(final Class<T> targetClass) {
         final T instance = ClassReflection.newInstanceFrom(targetClass);
         
         IntStream
