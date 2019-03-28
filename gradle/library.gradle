@@ -20,11 +20,16 @@ ext.library = [
     
     // The Apache Software License, Version 2.0
     org_assertj_assertj_core: "org.assertj:assertj-core:3.12.1",
+    org_hamcrest_hamcrest: "org.hamcrest:hamcrest:2.1",
     
     // Apache License 2.0
     br_com_armange_codeless_codeless_resource_bundle: "br.com.armange.codeless:codeless-resource-bundle:$armangeVersion" 
 ]
 
+/*
+ * Projects that are being imported as a library item, 
+ * instead of as a subproject.
+ */
 ext.noConflicting = [
     'codeless-resource-bundle'
 ]

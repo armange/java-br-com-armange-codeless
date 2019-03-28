@@ -2,4 +2,7 @@ rootProject.name = 'codeless'
 include 'codeless-reflection',
         'codeless-core',
         'codeless-resource-bundle',
-        'codeless-boilerplate'
+        'codeless-boilerplate',
+        'codeless-object-builder-api',
+        'codeless-object-builder-core-impl',
+        'codeless-object-builder-cdi-impl'

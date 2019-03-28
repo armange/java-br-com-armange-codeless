@@ -1,4 +1,4 @@
-package br.com.armange.codeless.reflection.sourceclass;
+package br.com.armange.codeless.reflection.clazz;
 
 public class ClassValue {
     private final Class<?> value;

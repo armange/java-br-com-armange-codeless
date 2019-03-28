@@ -1,8 +1,12 @@
-package br.com.armange.codeless.reflection.sourceclass;
+package br.com.armange.codeless.reflection.clazz;
 
 import java.util.function.Function;
 
-public abstract class ClassReflection {
+import br.com.armange.codeless.reflection.exception.ReflectionException;
+
+public class ClassReflectionClosures {
+
+    private ClassReflectionClosures() {}
     
     public static Function<? super String, ? extends ClassValue> mapToClassValue() {
         return s -> {
@@ -23,7 +27,7 @@ public abstract class ClassReflection {
             try {
                 return Class.forName(s);
             } catch (final ClassNotFoundException e) {
-                throw new RuntimeException(e);
+                throw new ReflectionException(e);
             }
         };
     }
