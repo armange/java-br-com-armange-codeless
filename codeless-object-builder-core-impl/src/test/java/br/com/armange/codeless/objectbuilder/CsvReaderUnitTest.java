@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import br.com.armange.codeless.core.StringUtil;
 import br.com.armange.codeless.objectbuilder.artifacts.FakeCity;
-import csv.CsvLine;
+import br.com.armange.codeless.objectbuilder.csv.CsvLine;
 
 public class CsvReaderUnitTest {
 

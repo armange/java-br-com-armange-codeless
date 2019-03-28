@@ -12,11 +12,11 @@ import java.util.function.Function;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import br.com.armange.codeless.objectbuilder.csv.CsvLine;
 import br.com.armange.codeless.reflection.clazz.ClassReflection;
 import br.com.armange.codeless.reflection.field.FieldReflection;
-import csv.CsvLine;
 
-class CsvReader {
+public class CsvReader {
 
     private final InputStream csvInputStream;
     private final String separator;

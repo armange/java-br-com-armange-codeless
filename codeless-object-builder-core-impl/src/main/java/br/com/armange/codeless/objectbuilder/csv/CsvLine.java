@@ -1,4 +1,4 @@
-package csv;
+package br.com.armange.codeless.objectbuilder.csv;
 
 public class CsvLine {
 

@@ -3,7 +3,7 @@ package br.com.armange.codeless.objectbuilder;
 import java.io.IOException;
 import java.io.InputStream;
 
-class InputStreamReader {
+public class InputStreamReader {
     InputStream inputStream;
     
     InputStreamReader(final InputStream inputStream) {
