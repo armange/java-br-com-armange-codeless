@@ -1,13 +1,12 @@
 package br.com.armange.codeless.objectbuilder;
 
-import static org.assertj.core.api.Assertions.*;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.assertj.core.api.SoftAssertions;
+import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,6 +16,7 @@ import csv.CsvLine;
 
 public class CsvReaderUnitTest {
 
+    private static final String ID_PROPERTY_NAME = "id";
     private static final String CSV_FILE_NAME = "fakeCity.csv";
 
     @Test
@@ -59,9 +59,16 @@ public class CsvReaderUnitTest {
             
             softAssertions.assertThat(lines).isNotNull();
             softAssertions.assertThat(lines).isNotEmpty();
-            softAssertions.assertThat(lines.size()).isEqualTo(4);
-            
             softAssertions.assertAll();
+            
+            Assert.assertThat(lines, Matchers.hasSize(4));
+            Assert.assertThat(lines, Matchers.allOf(
+                    Matchers.hasItems(Matchers.hasProperty(ID_PROPERTY_NAME, Matchers.equalTo(1))),
+                    Matchers.hasItems(Matchers.hasProperty(ID_PROPERTY_NAME, Matchers.equalTo(2))),
+                    Matchers.hasItems(Matchers.hasProperty(ID_PROPERTY_NAME, Matchers.equalTo(3))),
+                    Matchers.hasItems(Matchers.hasProperty(ID_PROPERTY_NAME, Matchers.equalTo(4)))
+                ));
+            
         } catch (final IOException e) {
             Assert.fail(e.getMessage());
         }

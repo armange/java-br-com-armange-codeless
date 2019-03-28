@@ -8,5 +8,6 @@ dependencies {
     compile library.org_jboss_weld_se_weld_se
     
     testCompile library.junit_junit
+    testCompile library.org_hamcrest_hamcrest
     testCompile library.org_assertj_assertj_core
 }
