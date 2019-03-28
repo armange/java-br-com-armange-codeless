@@ -6,7 +6,7 @@ public class ObjectBuilder {
 
     private ObjectBuilder() {}
     
-    public InputStreamReader ofInputStream(final InputStream inputStream) {
+    public static InputStreamReader ofInputStream(final InputStream inputStream) {
         return new InputStreamReader(inputStream);
     }
     

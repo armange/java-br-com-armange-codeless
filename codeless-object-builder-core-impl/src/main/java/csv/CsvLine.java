@@ -2,8 +2,8 @@ package csv;
 
 public class CsvLine {
 
-    private String[] header;
-    private String[] values;
+    private final String[] header;
+    private final String[] values;
     
     public CsvLine(final String[] header, final String[] values) {
         this.header = header;
@@ -14,15 +14,7 @@ public class CsvLine {
         return header;
     }
 
-    public void setHeader(String[] header) {
-        this.header = header;
-    }
-
     public String[] getValues() {
         return values;
-    }
-
-    public void setValues(String[] values) {
-        this.values = values;
     }
 }

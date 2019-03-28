@@ -1,6 +1,9 @@
 package br.com.armange.codeless.objectbuilder;
 
+import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
+
+import exception.ObjectBuilderException;
 
 public class StringConverter {
 
@@ -15,13 +18,19 @@ public class StringConverter {
     }
     
     public <T> T to(final Class<T> targetClass) {
-        switch (targetClass.getName()) {
-        
-        case "":
-            return (T) toBoolean();
-        
-        default: 
-            return null;
+        try {
+            if (targetClass.equals(Character.class)) {
+                return targetClass.getConstructor(String.class).newInstance(source.charAt(0));
+            } else {
+                return targetClass.getConstructor(String.class).newInstance(source);
+            }
+        } catch (final InstantiationException 
+                | IllegalAccessException 
+                | IllegalArgumentException
+                | InvocationTargetException 
+                | NoSuchMethodException 
+                | SecurityException e) {
+            throw new ObjectBuilderException(e);
         }
     }
     

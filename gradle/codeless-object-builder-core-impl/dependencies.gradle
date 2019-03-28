@@ -1,4 +1,5 @@
 dependencies {
+    compile projects.codeless_core
     compile projects.codeless_reflection
     compile projects.codeless_object_builder_api
     

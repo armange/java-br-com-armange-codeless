@@ -1,6 +1,7 @@
 package br.com.armange.codeless.reflection.field;
 
 import java.lang.reflect.Field;
+import java.util.function.BiFunction;
 
 import br.com.armange.codeless.reflection.exception.ReflectionException;
 
@@ -21,6 +22,14 @@ public class FieldOperations {
         this.useSetterIfExists = useSetterIfExists;
     }
 
+    public void setValue(final BiFunction<Field, Object, Object> handler, final Object value) {
+        if (useSetterIfExists) {
+            //Not implemented.
+        } else {
+            setValueDirectlyInTheField(handler.apply(field, value));
+        }
+    }
+    
     public void setValue(final Object value) {
         if (useSetterIfExists) {
             //Not implemented.
@@ -31,6 +40,7 @@ public class FieldOperations {
 
     private void setValueDirectlyInTheField(final Object value) {
         try {
+            field.setAccessible(true);
             field.set(instance, value);
         } catch (final IllegalArgumentException | IllegalAccessException e) {
             throw new ReflectionException(e);

@@ -8,25 +8,27 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UncheckedIOException;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import br.com.armange.codeless.reflection.clazz.ClassReflection;
+import br.com.armange.codeless.reflection.field.FieldReflection;
 import csv.CsvLine;
 
-public class CsvReader {
+class CsvReader {
 
     private final InputStream csvInputStream;
     private final String separator;
-    private final boolean hasHead;
+    private final boolean hasHeader;
     private Stream<CsvLine> csvContent;
-    private String[] head;
+    private String[] header;
     private BufferedReader bufferedReader;
 
     CsvReader(final InputStream csvInputStream, final String separator, final boolean hasHeader) throws IOException {
         this.csvInputStream = csvInputStream;
         this.separator = separator;
-        this.hasHead = hasHeader;
+        this.hasHeader = hasHeader;
 
         readCsv();
     }
@@ -38,13 +40,13 @@ public class CsvReader {
         
         csvContent = bufferedReader
                 .lines()
-                .map(line -> new CsvLine(head, line.split(separator)))
+                .map(line -> new CsvLine(header, line.split(separator, -1)))
                 .onClose(closeBufferedReaderOnCloseStream());
     }
 
     private void readHead() throws IOException {
-        if (hasHead) {
-            head = bufferedReader.readLine().split(separator);
+        if (hasHeader) {
+            header = bufferedReader.readLine().split(separator);
         }
     }
 
@@ -62,20 +64,30 @@ public class CsvReader {
         return csvContent;
     }
     
-    public String[] getHead() {
-        return head;
+    public String[] getHeader() {
+        return header;
     }
     
     public <T> Stream<T> streamAs(final Class<T> targetClass) {
-        final T instance = ClassReflection.newInstanceFrom(targetClass);
-        
-        IntStream
-            .range(0, head.length)
-            .forEach(i -> {
-//                FieldReflection.ofField(head[i]).ofInstance(instance).setValue(value);
-            });
-        
-        return null;
+        return stream().map(mapToInstanceOf(targetClass));
+    }
+
+    private <T> Function<? super CsvLine, ? extends T> mapToInstanceOf(final Class<T> targetClass) {
+        return l -> {
+            final T instance = ClassReflection.newInstanceFrom(targetClass);
+            
+            IntStream
+                .range(0, (header.length-1))
+                .forEach(i -> 
+                    FieldReflection
+                        .ofField(l.getHeader()[i])
+                        .ofInstance(instance)
+                        .setValue((f,v) -> 
+                            StringConverter.of(v.toString()).to(f.getType()), 
+                            l.getValues()[i]));
+            
+            return instance;
+        };
     }
 
     public static void main(String[] args) {
@@ -86,7 +98,7 @@ public class CsvReader {
             
             final CsvReader csv = new CsvReader(fileInputStream, ",", true);
 
-            Stream.of(csv.getHead()).forEach(printCsvElement());
+            Stream.of(csv.getHeader()).forEach(printCsvElement());
             
             System.out.println("\n");
             
