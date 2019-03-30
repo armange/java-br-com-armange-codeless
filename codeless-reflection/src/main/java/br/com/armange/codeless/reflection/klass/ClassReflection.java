@@ -1,4 +1,4 @@
-package br.com.armange.codeless.reflection.clazz;
+package br.com.armange.codeless.reflection.klass;
 
 import java.lang.reflect.Constructor;
 

@@ -5,14 +5,14 @@ import java.util.function.BiFunction;
 
 import br.com.armange.codeless.reflection.exception.ReflectionException;
 
-public class FieldOperations {
+public class SingleFieldOperations {
 
     private Field field;
     private Object instance;
     private boolean useGetterIfExists;
     private boolean useSetterIfExists;
     
-    FieldOperations(final Field field, 
+    SingleFieldOperations(final Field field, 
             final Object instance, 
             final boolean useGetterIfExists, 
             final boolean useSetterIfExists) {
@@ -22,12 +22,12 @@ public class FieldOperations {
         this.useSetterIfExists = useSetterIfExists;
     }
 
+    public Field getField() {
+        return field;
+    }
+    
     public void setValue(final BiFunction<Field, Object, Object> handler, final Object value) {
-        if (useSetterIfExists) {
-            //Not implemented.
-        } else {
-            setValueDirectlyInTheField(handler.apply(field, value));
-        }
+        setValue(handler.apply(field, value));
     }
     
     public void setValue(final Object value) {

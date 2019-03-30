@@ -1,4 +1,4 @@
-package br.com.armange.codeless.objectbuilder;
+package br.com.armange.codeless.objectbuilder.stringbuilder;
 
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;

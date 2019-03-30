@@ -10,6 +10,8 @@ public class FieldReflectionClosures {
             FieldValue fieldValue = null;
             
             try {
+                f.setAccessible(true);
+                
                 fieldValue = new FieldValue(f.get(enclosingInstance), null);
             } catch (final IllegalArgumentException | IllegalAccessException e) {
                 fieldValue = new FieldValue(null, e);
@@ -22,6 +24,8 @@ public class FieldReflectionClosures {
     public static Function<? super Field, ? extends Object> mapToValue(final Object enclosingInstance) {
         return f -> {
             try {
+                f.setAccessible(true);
+                
                 return f.get(enclosingInstance);
             } catch (final IllegalArgumentException | IllegalAccessException e) {
                 throw new RuntimeException(e);

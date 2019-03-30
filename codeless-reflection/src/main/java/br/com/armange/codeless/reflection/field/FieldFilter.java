@@ -12,9 +12,9 @@ public class FieldFilter {
         this.fieldName = fieldName;
     }
     
-    public FieldOperations ofInstance(final Object instance) {
+    public SingleFieldOperations ofInstance(final Object instance) {
         try {
-            return new FieldOperations(
+            return new SingleFieldOperations(
                     instance.getClass().getDeclaredField(fieldName), 
                     instance,
                     useGetterIfExists,

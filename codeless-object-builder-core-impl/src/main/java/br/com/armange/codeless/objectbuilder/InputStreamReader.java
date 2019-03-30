@@ -3,6 +3,8 @@ package br.com.armange.codeless.objectbuilder;
 import java.io.IOException;
 import java.io.InputStream;
 
+import br.com.armange.codeless.objectbuilder.csv.CsvReader;
+
 public class InputStreamReader {
     InputStream inputStream;
     

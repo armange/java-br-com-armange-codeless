@@ -1,4 +1,4 @@
-package br.com.armange.codeless.objectbuilder;
+package br.com.armange.codeless.objectbuilder.csv;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -12,9 +12,9 @@ import java.util.function.Function;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import br.com.armange.codeless.objectbuilder.csv.CsvLine;
-import br.com.armange.codeless.reflection.clazz.ClassReflection;
+import br.com.armange.codeless.objectbuilder.stringbuilder.StringConverter;
 import br.com.armange.codeless.reflection.field.FieldReflection;
+import br.com.armange.codeless.reflection.klass.ClassReflection;
 
 public class CsvReader {
 
@@ -25,7 +25,7 @@ public class CsvReader {
     private String[] header;
     private BufferedReader bufferedReader;
 
-    CsvReader(final InputStream csvInputStream, final String separator, final boolean hasHeader) throws IOException {
+    public CsvReader(final InputStream csvInputStream, final String separator, final boolean hasHeader) throws IOException {
         this.csvInputStream = csvInputStream;
         this.separator = separator;
         this.hasHeader = hasHeader;
