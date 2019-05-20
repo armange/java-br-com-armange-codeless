@@ -23,7 +23,11 @@ ext.library = [
     org_hamcrest_hamcrest: "org.hamcrest:hamcrest:2.1",
     
     // Apache License 2.0
-    br_com_armange_codeless_codeless_resource_bundle: "br.com.armange.codeless:codeless-resource-bundle:$armangeVersion" 
+    br_com_armange_codeless_codeless_resource_bundle: "br.com.armange.codeless:codeless-resource-bundle:$armangeVersion",
+    br_com_armange_codeless_object_builder_core_impl: "br.com.armange.codeless:codeless-object-builder-core-impl:$armangeVersion",
+    
+    // Apache License 2.0
+    com_bmuschko_gradle_nexus_plugin: "com.bmuschko:gradle-nexus-plugin:2.3.1"
 ]
 
 /*
@@ -31,5 +35,6 @@ ext.library = [
  * instead of as a subproject.
  */
 ext.noConflicting = [
-    'codeless-resource-bundle'
+    'codeless-resource-bundle',
+    'codeless-object-builder-core-impl'
 ]

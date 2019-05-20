@@ -8,12 +8,14 @@ import java.util.stream.Collectors;
 import org.assertj.core.api.SoftAssertions;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import br.com.armange.codeless.core.StringUtil;
 import br.com.armange.codeless.objectbuilder.artifacts.FakeCity;
 import br.com.armange.codeless.objectbuilder.csv.CsvLine;
 
+@Ignore
 public class CsvReaderUnitTest {
 
     private static final String ID_PROPERTY_NAME = "id";
