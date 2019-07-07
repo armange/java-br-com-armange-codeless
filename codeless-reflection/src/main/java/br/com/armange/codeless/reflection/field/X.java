@@ -2,13 +2,13 @@ package br.com.armange.codeless.reflection.field;
 
 import br.com.armange.codeless.reflection.exception.ReflectionException;
 
-public class FieldFilter {
+public class X {
 
     private String fieldName;
     private boolean useGetterIfExists;
     private boolean useSetterIfExists;
 
-    FieldFilter(final String fieldName) {
+    X(final String fieldName) {
         this.fieldName = fieldName;
     }
     
