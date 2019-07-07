@@ -1,0 +1,20 @@
+buildscript {
+    apply from: "$rootDir/gradle/library.gradle"
+
+    project.ext {
+        nexusUsername = "$System.env.NEXUS_USERNAME"
+        nexusPassword = "$System.env.NEXUS_PASSWORD"
+    }
+    
+    repositories {
+        maven { url "$nexusRepository" }
+        mavenCentral()
+        mavenLocal()
+    }
+    
+    dependencies {
+        classpath library.com_bmuschko_gradle_nexus_plugin
+    }
+}
+
+apply plugin: 'com.bmuschko.nexus'

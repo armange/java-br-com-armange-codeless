@@ -73,21 +73,22 @@ public class CsvReader {
     }
 
     private <T> Function<? super CsvLine, ? extends T> mapToInstanceOf(final Class<T> targetClass) {
-        return l -> {
-            final T instance = ClassReflection.newInstanceFrom(targetClass);
-            
-            IntStream
-                .range(0, (header.length-1))
-                .forEach(i -> 
-                    FieldReflection
-                        .ofField(l.getHeader()[i])
-                        .ofInstance(instance)
-                        .setValue((f,v) -> 
-                            StringConverter.of(v.toString()).to(f.getType()), 
-                            l.getValues()[i]));
-            
-            return instance;
-        };
+//        return l -> {
+//            final T instance = ClassReflection.newInstanceFrom(targetClass);
+//            
+//            IntStream
+//                .range(0, (header.length-1))
+//                .forEach(i -> 
+//                    FieldReflection
+//                        .ofField(l.getHeader()[i])
+//                        .ofInstance(instance)
+//                        .setValue((f,v) -> 
+//                            StringConverter.of(v.toString()).to(f.getType()), 
+//                            l.getValues()[i]));
+//            
+//            return instance;
+//        };
+        return null;
     }
 
     public static void main(String[] args) {
