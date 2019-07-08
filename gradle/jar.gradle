@@ -1,3 +1,7 @@
+/*
+ * When Nexus is applied, javadocJar and sourcesJar tasks is not necessary, 
+ * because Nexus plugin already implements these tasks.
+ */
 task javadocJar(type: Jar) {
   from javadoc
   archiveClassifier = 'javadoc'

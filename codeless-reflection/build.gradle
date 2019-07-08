@@ -7,7 +7,7 @@ buildscript {
     }
     
     repositories {
-        maven { url "$nexusRepository" }
+        //maven { url "$nexusRepository" }
         mavenCentral()
         mavenLocal()
     }
@@ -17,4 +17,7 @@ buildscript {
     }
 }
 
-apply plugin: 'com.bmuschko.nexus'
+//apply plugin: 'com.bmuschko.nexus'
+apply plugin: 'jacoco'
+
+apply from: "$rootDir/gradle/test.gradle"

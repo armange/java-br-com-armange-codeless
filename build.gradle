@@ -17,7 +17,7 @@ buildscript {
     }
 }
 
-apply plugin: 'com.bmuschko.nexus'
+//apply plugin: 'com.bmuschko.nexus'
 
 allprojects {
     apply plugin: 'java-library'
@@ -29,10 +29,11 @@ allprojects {
     sourceCompatibility = 1.8
     
     apply from: "$rootDir/gradle/library.gradle"
-    apply from: "$rootDir/gradle/nexus.gradle"
+    //apply from: "$rootDir/gradle/nexus.gradle"
     apply from: "$rootDir/gradle/repositories.gradle"
     apply from: "$rootDir/gradle/projects.gradle"
     apply from: "$rootDir/gradle/configurations.gradle"
+    
 }
 
 subprojects {

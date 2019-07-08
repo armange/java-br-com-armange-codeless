@@ -1,0 +1,37 @@
+image: diegoarmangecosta/runner:openjdk8.212-on-ubuntu18.04
+
+before_script:
+    - "chmod +x ./gradlew"
+  
+cache:
+    paths:
+        - ".gradle/"
+
+stages:
+    - build
+    - test
+
+build:
+    stage: build
+    script:
+        - "./gradlew clean build -x test -x jar -i"
+    artifacts:
+      expire_in: 1 week
+      when: always
+      paths:
+        - build/
+
+test:
+    stage: test
+    script:
+        - "./gradlew test -i"
+    artifacts:
+      expire_in: 1 week
+      when: always
+      paths:
+        - build/test-results
+        - build/reports
+        - build/jacoco
+        - "**/build/test-results"
+        - "**/build/reports"
+        - "**/build/jacoco"
