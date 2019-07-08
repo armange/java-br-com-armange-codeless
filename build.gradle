@@ -7,7 +7,7 @@ buildscript {
     }
     
     repositories {
-        maven { url "$nexusRepository" }
+        //maven { url "$nexusRepository" }
         mavenCentral()
         mavenLocal()
     }
