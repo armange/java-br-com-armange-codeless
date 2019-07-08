@@ -1,11 +1,8 @@
 image: diegoarmangecosta/runner:openjdk8.212-on-ubuntu18.04
 
 before_script:
+    - "pwd"
     - "chmod +x ./gradlew"
-  
-cache:
-    paths:
-        - ".gradle/"
 
 stages:
     - build
