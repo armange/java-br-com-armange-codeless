@@ -35,6 +35,6 @@ ext.library = [
  * instead of as a subproject.
  */
 ext.noConflicting = [
-    'codeless-resource-bundle',
-    'codeless-object-builder-core-impl'
+    'codetree-resource-bundle',
+    'codetree-object-builder-core-impl'
 ]
