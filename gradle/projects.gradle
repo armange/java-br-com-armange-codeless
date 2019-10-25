@@ -1,5 +1,5 @@
 ext.projects = [
-    codeless_core: project(':codeless-core'),
-    codeless_reflection: project(':codeless-reflection'),
-    codeless_object_builder_api: project(':codeless-object-builder-api')
+    codetree_core: project(':codetree-core'),
+    codetree_reflection: project(':codetree-reflection'),
+    codetree_object_builder_api: project(':codetree-object-builder-api')
 ]
