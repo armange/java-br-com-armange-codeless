@@ -1,8 +1,9 @@
-rootProject.name = 'codeless'
-include 'codeless-reflection',
-        'codeless-core',
-        'codeless-resource-bundle',
-        'codeless-boilerplate',
-        'codeless-object-builder-api',
-        'codeless-object-builder-core-impl',
-        'codeless-object-builder-cdi-impl'
+rootProject.name = 'codetree'
+include 'codetree-reflection',
+        'codetree-core',
+        'codetree-resource-bundle',
+        'codetree-boilerplate',
+        'codetree-object-builder-api',
+        'codetree-object-builder-core-impl',
+        'codetree-object-builder-cdi-impl',
+        'codetree-satrapa'
