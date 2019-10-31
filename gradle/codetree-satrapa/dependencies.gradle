@@ -7,4 +7,6 @@ dependencies {
     
     testCompile library.junit_junit
     testCompile library.org_assertj_assertj_core
+    
+    compile group: 'org.antlr', name: 'antlr4-runtime', version: '4.7.2'
 }
