@@ -5,4 +5,5 @@ include 'codetree-reflection',
         'codetree-boilerplate',
         'codetree-object-builder-api',
         'codetree-object-builder-core-impl',
-        'codetree-object-builder-cdi-impl'
+        'codetree-object-builder-cdi-impl',
+        'codetree-satrapa'

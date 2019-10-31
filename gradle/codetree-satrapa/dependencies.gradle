@@ -1,0 +1,10 @@
+dependencies {
+    compile library.com_google_guava_guava
+    compile library.org_javassist_javassist
+    compile library.org_jboss_weld_se_weld_se
+    compile library.br_com_armange_codetree_resource_bundle
+    //compile library.br_com_armange_codetree_object_builder_core_impl
+    
+    testCompile library.junit_junit
+    testCompile library.org_assertj_assertj_core
+}
