@@ -23,6 +23,7 @@ allprojects {
     apply plugin: 'java-library'
     apply plugin: 'maven'
     apply plugin: 'maven-publish'
+    apply plugin: 'jacoco'
     
     group = 'br.com.armange.codetree'
     version = '0.0.1-SNAPSHOT'
@@ -30,6 +31,7 @@ allprojects {
     
     apply from: "$rootDir/gradle/library.gradle"
     //apply from: "$rootDir/gradle/nexus.gradle"
+    apply from: "$rootDir/gradle/test.gradle"
     apply from: "$rootDir/gradle/repositories.gradle"
     apply from: "$rootDir/gradle/projects.gradle"
     apply from: "$rootDir/gradle/configurations.gradle"

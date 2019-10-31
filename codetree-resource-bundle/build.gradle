@@ -18,4 +18,5 @@ buildscript {
 }
 
 //apply plugin: 'com.bmuschko.nexus'
-apply plugin: 'jacoco'
+
+

@@ -1,0 +1,7 @@
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("$projectDir/jacoco/report")
+    }
+}

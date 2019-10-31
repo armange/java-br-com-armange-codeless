@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MessageFormatResourceBundle.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">codetree-resource-bundle</a> &gt; <a href="index.source.html" class="el_package">br.com.armange.codeless.resourcebundle</a> &gt; <span class="el_source">MessageFormatResourceBundle.java</span></div><h1>MessageFormatResourceBundle.java</h1><pre class="source lang-java linenums">package br.com.armange.codeless.resourcebundle;
+
+import java.text.MessageFormat;
+import java.util.ResourceBundle;
+
+import javax.inject.Inject;
+
+import br.com.armange.codeless.core.StringUtil;
+
+public class MessageFormatResourceBundle {
+
+    private final ResourceBundle resourceBundle;
+<span class="fc" id="L13">    private final MessageFormat formatter = new MessageFormat(StringUtil.EMPTY);</span>
+    
+    @Inject
+<span class="fc" id="L16">    public MessageFormatResourceBundle(final ResourceBundle resourceBundle) {</span>
+<span class="fc" id="L17">        formatter.setLocale(resourceBundle.getLocale());</span>
+        
+<span class="fc" id="L19">        this.resourceBundle = resourceBundle;</span>
+<span class="fc" id="L20">    }</span>
+    
+    public String getStringWithParameters(final String key, final Object... parameters) {
+<span class="fc" id="L23">        formatter.applyPattern(resourceBundle.getString(key));</span>
+        
+<span class="fc" id="L25">        return formatter.format(parameters);</span>
+    }
+    
+    public String getString(final String key) {
+<span class="fc" id="L29">        return resourceBundle.getString(key);</span>
+    }
+    
+    public ResourceBundle getResourceBundle() {
+<span class="fc" id="L33">        return resourceBundle;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
