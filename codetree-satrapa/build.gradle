@@ -18,3 +18,31 @@ buildscript {
 }
 
 //apply plugin: 'com.bmuschko.nexus'
+apply plugin: 'application'
+
+application {
+    mainClassName = 'br.com.armange.codetree.satrapa.draft.Draft'
+}
+
+tasks.register("executableJar", Jar) {
+    group = 'distribution'
+    description = 'Produces a executable jar'
+
+    manifest {
+        attributes 'Implementation-Title': 'Coderee Satrapa', 
+            'Implementation-Version': version,
+            'Main-Class': 'br.com.armange.codetree.satrapa.draft.Draft'
+    }
+    
+    baseName = project.name + '-all'
+    
+    from (configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }) {
+        exclude 'META-INF/MANIFEST.MF'
+        exclude 'META-INF/*.SF'
+        exclude 'META-INF/*.DSA'
+        exclude 'META-INF/*.RSA'
+    }
+    
+    with jar
+}
+

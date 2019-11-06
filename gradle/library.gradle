@@ -1,4 +1,5 @@
 def armangeVersion = "0.0.1-SNAPSHOT"
+def deltaspikeVersion = "1.9.0"
 def jerseyVersion = "2.25.1"
 
 ext.library = [
@@ -23,8 +24,13 @@ ext.library = [
     org_hamcrest_hamcrest: "org.hamcrest:hamcrest:2.1",
     
     // Apache License 2.0
+    br_com_armange_codetree_core: "br.com.armange.codetree:codetree-core:$armangeVersion",
     br_com_armange_codetree_resource_bundle: "br.com.armange.codetree:codetree-resource-bundle:$armangeVersion",
     br_com_armange_codetree_object_builder_core_impl: "br.com.armange.codetree:codetree-object-builder-core-impl:$armangeVersion",
+    
+    // Apache License 2.0
+    org_apache_deltaspike_core_deltaspike_core_api: "org.apache.deltaspike.core:deltaspike-core-api:$deltaspikeVersion",
+    org_apache_deltaspike_core_deltaspike_core_impl: "org.apache.deltaspike.core:deltaspike-core-impl:$deltaspikeVersion",
     
     // Apache License 2.0
     com_bmuschko_gradle_nexus_plugin: "com.bmuschko:gradle-nexus-plugin:2.3.1"
